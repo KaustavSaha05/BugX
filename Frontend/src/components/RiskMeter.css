@@ -1,0 +1,140 @@
+/* ─── Risk Meter Telemetry Card ─────────────────────────────────── */
+.risk-meter {
+  padding: 0.95rem 1.15rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  animation: fadeSlideIn 0.3s var(--ease-smooth) forwards;
+  transition: all var(--transition-normal);
+}
+
+/* ─── Risk Level Themes ─────────────────────────────────────────── */
+.risk-critical {
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.04) 100%);
+  border-color: rgba(239, 68, 68, 0.28);
+}
+.risk-high {
+  background: linear-gradient(180deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.04) 100%);
+  border-color: rgba(249, 115, 22, 0.28);
+}
+.risk-medium {
+  background: linear-gradient(180deg, rgba(234, 179, 8, 0.09) 0%, rgba(234, 179, 8, 0.03) 100%);
+  border-color: rgba(234, 179, 8, 0.25);
+}
+.risk-low {
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.09) 0%, rgba(16, 185, 129, 0.03) 100%);
+  border-color: rgba(16, 185, 129, 0.24);
+}
+
+/* ─── Header Row ─────────────────────────────────────────────────── */
+.risk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.risk-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.risk-icon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.risk-critical .risk-icon-pill { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+.risk-high    .risk-icon-pill { background: rgba(249, 115, 22, 0.2); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.4); }
+.risk-medium  .risk-icon-pill { background: rgba(234, 179, 8, 0.18); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.4); }
+.risk-low     .risk-icon-pill { background: rgba(16, 185, 129, 0.18); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+.risk-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.risk-score-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+}
+
+.risk-count {
+  font-size: 0.74rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+
+/* ─── Gauge Bar ─────────────────────────────────────────────────── */
+.risk-bar-bg {
+  height: 5px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.risk-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.7s var(--ease-smooth);
+}
+
+.risk-critical .risk-bar-fill {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+.risk-high .risk-bar-fill {
+  background: linear-gradient(90deg, #ea580c, #f97316);
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+}
+.risk-medium .risk-bar-fill {
+  background: linear-gradient(90deg, #ca8a04, #eab308);
+  box-shadow: 0 0 10px rgba(234, 179, 8, 0.6);
+}
+.risk-low .risk-bar-fill {
+  background: linear-gradient(90deg, #059669, #10b981);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+/* ─── Summary Box ───────────────────────────────────────────────── */
+.risk-summary-box {
+  padding: 0.65rem 0.85rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.risk-summary {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

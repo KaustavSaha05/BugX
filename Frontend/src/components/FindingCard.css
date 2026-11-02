@@ -1,0 +1,318 @@
+/* ─── Finding Card Root ─────────────────────────────────────────── */
+.fc-root {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  background: rgba(14, 18, 28, 0.75);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-normal);
+  animation: fcFadeIn 0.25s var(--ease-smooth) both;
+}
+
+.fc-root:last-child {
+  margin-bottom: 0;
+}
+
+/* Severity Accents */
+.fc-root.sev-critical {
+  border-color: rgba(239, 68, 68, 0.28);
+  border-left: 3px solid #ef4444;
+}
+.fc-root.sev-critical:hover {
+  border-color: rgba(239, 68, 68, 0.45);
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.12);
+}
+
+.fc-root.sev-high {
+  border-color: rgba(249, 115, 22, 0.28);
+  border-left: 3px solid #f97316;
+}
+.fc-root.sev-high:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 4px 18px rgba(249, 115, 22, 0.12);
+}
+
+.fc-root.sev-medium {
+  border-color: rgba(234, 179, 8, 0.25);
+  border-left: 3px solid #eab308;
+}
+.fc-root.sev-medium:hover {
+  border-color: rgba(234, 179, 8, 0.4);
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.1);
+}
+
+.fc-root.sev-low {
+  border-color: rgba(16, 185, 129, 0.25);
+  border-left: 3px solid #10b981;
+}
+.fc-root.sev-low:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.1);
+}
+
+.fc-root.sev-info {
+  border-color: rgba(99, 102, 241, 0.25);
+  border-left: 3px solid #6366f1;
+}
+.fc-root.sev-info:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.12);
+}
+
+.fc-root.fc-open {
+  background: rgba(16, 21, 33, 0.95);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Card Header Button ─────────────────────────────────────────── */
+.fc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+  font-family: inherit;
+}
+
+.fc-header:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.fc-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.fc-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+/* ─── Severity Badge ─────────────────────────────────────────────── */
+.fc-sev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fc-sev-badge.sev-critical { background: rgba(239, 68, 68, 0.18); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+.fc-sev-badge.sev-high     { background: rgba(249, 115, 22, 0.18); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.35); }
+.fc-sev-badge.sev-medium   { background: rgba(234, 179, 8, 0.15);  color: #fde047; border: 1px solid rgba(234, 179, 8, 0.35); }
+.fc-sev-badge.sev-low      { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+.fc-sev-badge.sev-info     { background: rgba(99, 102, 241, 0.16); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.35); }
+
+/* ─── Finding Title ──────────────────────────────────────────────── */
+.fc-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Category & Line Tags ───────────────────────────────────────── */
+.fc-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.fc-line-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 4px;
+  padding: 0.12rem 0.4rem;
+  white-space: nowrap;
+}
+
+.fc-chevron {
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.fc-header:hover .fc-chevron {
+  color: var(--text-primary);
+}
+
+/* ─── Body Sections ──────────────────────────────────────────────── */
+.fc-body {
+  padding: 0.25rem 0.95rem 0.95rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  animation: fcBodyIn 0.2s var(--ease-smooth);
+}
+
+.fc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem 0.75rem;
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.fc-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fc-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #818cf8;
+}
+
+.fc-section-badge.warning {
+  color: #fb923c;
+}
+
+.fc-section-badge.success {
+  color: #34d399;
+}
+
+.fc-text {
+  font-size: 0.835rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─── Code Block ─────────────────────────────────────────────────── */
+.fc-section-code {
+  background: #080a11;
+  border-color: rgba(99, 102, 241, 0.25);
+  padding: 0;
+  overflow: hidden;
+}
+
+.fc-code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fc-code-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.fc-code-terminal-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6366f1;
+  box-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+}
+
+.fc-code-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: #c7d2fe;
+  letter-spacing: 0.02em;
+}
+
+.fc-code-block {
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  margin: 0;
+  background: transparent;
+}
+
+.fc-code-block code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  white-space: pre;
+}
+
+/* ─── Copy Button ────────────────────────────────────────────────── */
+.fc-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.fc-copy-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-hover);
+}
+
+.fc-copy-btn-done {
+  color: #6ee7b7 !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+@keyframes fcFadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fcBodyIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
